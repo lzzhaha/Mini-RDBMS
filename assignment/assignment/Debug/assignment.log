@@ -1,0 +1,59 @@
+﻿  RecordManager.cc
+c:\users\zlinai\desktop\comp3311_assignment4\code\recordmanager.cc(3): fatal error C1083: Cannot open include file: 'Reger.h': No such file or directory
+  Main.cc
+c:\users\zlinai\desktop\comp3311_assignment4\code\catalogmanager.h(30): warning C4800: 'unsigned int': forcing value to bool 'true' or 'false' (performance warning)
+  Interpreter.cc
+c:\users\zlinai\desktop\comp3311_assignment4\code\catalogmanager.h(30): warning C4800: 'unsigned int': forcing value to bool 'true' or 'false' (performance warning)
+  IndexManager.cc
+c:\users\zlinai\desktop\comp3311_assignment4\code\indexmanager.cc(117): error C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(205): note: see declaration of 'fopen'
+c:\users\zlinai\desktop\comp3311_assignment4\code\indexmanager.cc(129): error C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(205): note: see declaration of 'fopen'
+c:\users\zlinai\desktop\comp3311_assignment4\code\indexmanager.cc(143): error C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(205): note: see declaration of 'fopen'
+c:\users\zlinai\desktop\comp3311_assignment4\code\indexmanager.cc(190): warning C4018: '<': signed/unsigned mismatch
+c:\users\zlinai\desktop\comp3311_assignment4\code\indexmanager.cc(226): warning C4018: '<': signed/unsigned mismatch
+c:\users\zlinai\desktop\comp3311_assignment4\code\indexmanager.cc(227): warning C4018: '<': signed/unsigned mismatch
+c:\users\zlinai\desktop\comp3311_assignment4\code\indexmanager.cc(355): error C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(205): note: see declaration of 'fopen'
+c:\users\zlinai\desktop\comp3311_assignment4\code\indexmanager.cc(359): warning C4101: 'type': unreferenced local variable
+c:\users\zlinai\desktop\comp3311_assignment4\code\indexmanager.cc(379): error C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(205): note: see declaration of 'fopen'
+  global.cc
+c:\users\zlinai\desktop\comp3311_assignment4\code\global.cc(62): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  filter.cc
+  CatalogManager.cc
+c:\users\zlinai\desktop\comp3311_assignment4\code\catalogmanager.h(30): warning C4800: 'unsigned int': forcing value to bool 'true' or 'false' (performance warning)
+c:\users\zlinai\desktop\comp3311_assignment4\code\catalogmanager.cc(51): warning C4018: '<': signed/unsigned mismatch
+c:\users\zlinai\desktop\comp3311_assignment4\code\catalogmanager.cc(64): warning C4018: '<': signed/unsigned mismatch
+  BufferManager.cc
+c:\users\zlinai\desktop\comp3311_assignment4\code\buffermanager.cc(23): error C2440: 'initializing': cannot convert from 'int' to 'std::_List_iterator<std::_List_val<std::_List_simple_types<Block>>>'
+  c:\users\zlinai\desktop\comp3311_assignment4\code\buffermanager.cc(23): note: No constructor could take the source type, or constructor overload resolution was ambiguous
+c:\users\zlinai\desktop\comp3311_assignment4\code\buffermanager.cc(32): error C2064: term does not evaluate to a function taking 0 arguments
+c:\users\zlinai\desktop\comp3311_assignment4\code\buffermanager.cc(38): error C2676: binary '[': 'Block' does not define this operator or a conversion to a type acceptable to the predefined operator
+c:\users\zlinai\desktop\comp3311_assignment4\code\buffermanager.cc(63): error C2065: 'File': undeclared identifier
+c:\users\zlinai\desktop\comp3311_assignment4\code\buffermanager.cc(63): error C2065: 'fp': undeclared identifier
+c:\users\zlinai\desktop\comp3311_assignment4\code\buffermanager.cc(63): error C2664: 'FILE *fopen(const char *,const char *)': cannot convert argument 1 from 'const std::string' to 'const char *'
+  c:\users\zlinai\desktop\comp3311_assignment4\code\buffermanager.cc(63): note: No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+c:\users\zlinai\desktop\comp3311_assignment4\code\buffermanager.cc(65): error C2065: 'fp': undeclared identifier
+c:\users\zlinai\desktop\comp3311_assignment4\code\buffermanager.cc(66): error C2065: 'b': undeclared identifier
+c:\users\zlinai\desktop\comp3311_assignment4\code\buffermanager.cc(66): error C2228: left of '.fileName' must have class/struct/union
+  c:\users\zlinai\desktop\comp3311_assignment4\code\buffermanager.cc(66): note: type is 'unknown-type'
+c:\users\zlinai\desktop\comp3311_assignment4\code\buffermanager.cc(67): error C2561: 'BufferManager::BufferManagerRead': function must return a value
+  c:\users\zlinai\desktop\comp3311_assignment4\code\buffermanager.cc(19): note: see declaration of 'BufferManager::BufferManagerRead'
+c:\users\zlinai\desktop\comp3311_assignment4\code\buffermanager.cc(70): error C2065: 'fp': undeclared identifier
+c:\users\zlinai\desktop\comp3311_assignment4\code\buffermanager.cc(77): error C2065: 'fp': undeclared identifier
+c:\users\zlinai\desktop\comp3311_assignment4\code\buffermanager.cc(99): error C2440: 'return': cannot convert from 'int' to 'std::_List_iterator<std::_List_val<std::_List_simple_types<Block>>>'
+  c:\users\zlinai\desktop\comp3311_assignment4\code\buffermanager.cc(99): note: No constructor could take the source type, or constructor overload resolution was ambiguous
+c:\users\zlinai\desktop\comp3311_assignment4\code\buffermanager.cc(119): error C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(205): note: see declaration of 'fopen'
+c:\users\zlinai\desktop\comp3311_assignment4\code\buffermanager.cc(122): error C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(205): note: see declaration of 'fopen'
+c:\users\zlinai\desktop\comp3311_assignment4\code\buffermanager.cc(126): error C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(205): note: see declaration of 'fopen'
+  API.cc
+c:\users\zlinai\desktop\comp3311_assignment4\code\catalogmanager.h(30): warning C4800: 'unsigned int': forcing value to bool 'true' or 'false' (performance warning)
+  Generating Code...
+c:\users\zlinai\desktop\comp3311_assignment4\code\api.cc(96): error C4716: 'API::dropTable': must return a value
+c:\users\zlinai\desktop\comp3311_assignment4\code\global.cc(83): warning C4715: 'element::operator<': not all control paths return a value
+c:\users\zlinai\desktop\comp3311_assignment4\code\global.cc(93): warning C4715: 'element::operator==': not all control paths return a value

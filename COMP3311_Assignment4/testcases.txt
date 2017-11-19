@@ -1,0 +1,44 @@
+create table student (
+		sno char(8),
+		sname char(16) unique,
+		sage int,
+		sgender char (1),
+		primary key ( sno )
+);
+
+create table teacher (
+		tno char(8),
+		tname char(16) unique,
+		tage int,
+		tgender char (1),
+		tsalary float,
+		primary key ( tno )
+);
+
+insert into student values ('10000','jason',22,'M');
+insert into student values ('20000','rachel',20,'F');
+insert into student values ('30000','peng',21,'M');
+insert into student values ('40000','anand',19,'M');
+insert into student values ('50000','robin',16,'M');
+
+insert into teacher values ('10000','lei',40,'M', 120000.0);
+insert into teacher values ('20000','bo',45,'M', 150000.0);
+insert into teacher values ('30000','qiong',35,'F', 120000.0);
+
+select * from student where sno = '10000';
+select * from student where sage > 18 and sgender = 'F';
+select * from student where sage < 20 and sgender = 'M';
+select * from teacher where tsalary > 120000.0;
+select * from teacher where tsalary <> 120000.0;
+select * from teacher where tsalary <= 120000.0;
+select * from teacher where tsalary < 150000.0;
+
+delete from student where sno = '10000';
+select * from student;
+
+delete from student where sno = '00000';
+
+
+drop table student;
+drop table teacher;
+

@@ -1,0 +1,1 @@
+insert student -> map of index manager fails to update

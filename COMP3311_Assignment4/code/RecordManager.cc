@@ -120,19 +120,18 @@ void RecordManager::RecordManagerRecordInsert(std::string dbName, const std::vec
         //==========================================
 
 		setInt(block, BLOCKSIZE - 4, BLOCKSIZE);
-
+		offset += BLOCKSIZE;
 		Block newBlock;
 
 		newBlock.fileName = block.fileName;
-		
+		newBlock.offset = offset;
 		InputRecord(newBlock, 0, entry, nt);
 
 		bm.BufferManagerWrite(newBlock);
 
 		nt.blockCount++;
 
-		offset += BLOCKSIZE;
-
+		nt.write();
 
 
     }
@@ -143,20 +142,20 @@ void RecordManager::RecordManagerRecordInsert(std::string dbName, const std::vec
         // just input the record and update the endpoint 
         //==========================================
 
-		setInt(block, BLOCKSIZE - 4, endPoint + tupleSize);
 		InputRecord(block, endPoint, entry, nt);
+		endPoint += tupleSize;
+		setInt(block, BLOCKSIZE - 4, endPoint);
 
     }
 
 
     // update the index information by insert data into index
-	for (AttrType& att : nt.attributes) {
-		for (const std::string& index : att.indices) {
-			im.load();
-			im.insert(index, entry[nt.getIndexID(att)], offset);
-			im.save();
-		}
-	}
+	std::string tableName = dbName.substr(0, dbName.find('.'));
+    for (int i = 0; i < nt.attributes.size(); i++) {
+        for (auto index : nt.attributes[i].indices) {
+            im.insert(tableName+"."+nt.attributes[i].name, entry[i], offset);
+        }
+    }
 
 }
 
@@ -211,6 +210,7 @@ void RecordManager::RecordManagerRecordDelete(std::string dbName, long offset, c
     //update index if necessary, to erase the tuple in index
     // HIT: borrow idea from function RecordManager::RecordManagerRecordSelect()
     //==========================================
+	
 	for (tuple = 0; tuple <= endPoint - tupleSize; tuple += tupleSize) {
 		if (block.data[tuple] == 'N')
 			continue;
@@ -234,11 +234,21 @@ void RecordManager::RecordManagerRecordDelete(std::string dbName, long offset, c
 				break;
 			}
 		}
-		if (true == filter.test(queryTuple))
+		if (true == filter.test(queryTuple)) {
+			
 			block.data[tuple] = 'N';
+			std::string tableName = dbName.substr(0, dbName.find('.'));
+			for (int i = 0; i < nt.attributes.size(); i++) {
+				for (auto index : nt.attributes[i].indices) {
+					im.erase(tableName + "." + nt.attributes[i].name, queryTuple[i]);
+
+				}
+			}
+		}
+		
 	}
 	
-
+	
 
 }
 

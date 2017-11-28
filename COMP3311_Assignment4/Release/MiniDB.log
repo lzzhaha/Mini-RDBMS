@@ -1,0 +1,9 @@
+﻿  RecordManager.cc
+c:\users\zlinai\desktop\mini-rdbms\comp3311_assignment4\code\CatalogManager.h(30): warning C4800: 'unsigned int': forcing value to bool 'true' or 'false' (performance warning)
+code\RecordManager.cc(70): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\string.h(119): note: see declaration of 'strcpy'
+code\RecordManager.cc(154): warning C4018: '<': signed/unsigned mismatch
+code\RecordManager.cc(241): warning C4018: '<': signed/unsigned mismatch
+LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/OPT:ICF' specification
+  MiniDB.vcxproj -> C:\Users\zlinai\Desktop\Mini-RDBMS\COMP3311_Assignment4\Release\MiniDB.exe
+  MiniDB.vcxproj -> C:\Users\zlinai\Desktop\Mini-RDBMS\COMP3311_Assignment4\Release\MiniDB.pdb (Full PDB)

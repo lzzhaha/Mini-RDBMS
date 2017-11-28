@@ -16,55 +16,36 @@ HIT:
     use the LRU(least recently used) schema.
 return：bufferIter. 
 */
+
 bufferIter BufferManager::BufferManagerRead(const string &fileName, long offset)
 {
 	tableIter it = inmemory_table.find(make_pair(fileName,offset));
 
-	bufferIter ret = buffer.end();
+	
 	if (it!=inmemory_table.end()){ //already in the buffer
-        //YOUR CODE GOES HERE:
-        //=============================
-        //move the recent used block to be the last block in the list:buffer to support LRU
-        //update the inmemory_table
-        //then return the block
-        //=============================
+        
 
-		ret = it->second;
+		Block copy = *(it->second);
 
 		//copy the block, push the copy, remove the original block
 
-		Block copy;
-		for (int i = 0; i < BLOCKSIZE; i++) {
-			copy.data[i] = ret->data[i];
-		}
-
-		copy.fileName = ret->fileName;
-		copy.offset = ret->offset;
-		copy.status = ret->status;	
-
+	
+		buffer.erase(it->second);
 		buffer.push_back(copy);
 
-		buffer.erase(ret);
-
-		ret = --buffer.end();
-
-		it->second = ret;
-
-
-
+		bufferIter new_block = buffer.end();
+		new_block--;
+		tag T = make_pair(copy.fileName, copy.offset);
+		inmemory_table.find(T)->second = new_block;
+		return new_block;
 	}
 	else{ //not in the buffer
-        //YOUR CODE GOES HERE:
-        //=============================
-        //read the block from the file, and push it into the list:buffer at the end for the LRU.
-        //update the inmemory_table
-        //then return the block
-        //=============================
+       
 		FILE *fp = fopen(fileName.c_str(), "rb");
 
 		if (!fp) {
 			cerr << "ERROR: No file named: " <<fileName << " .\n";
-			return ret;
+			
 		}
 
 		fseek(fp, offset, SEEK_SET);
@@ -74,19 +55,17 @@ bufferIter BufferManager::BufferManagerRead(const string &fileName, long offset)
 		input.offset = offset;
 		input.status = 0;
 		
-		fread(input.data, 1, BLOCKSIZE, fp);
-		
+		fread(&input.data, 1, BLOCKSIZE, fp);
+		fclose(fp);
 		buffer.push_back(input);
 
 
-		ret = --buffer.end();
+		bufferIter new_block = buffer.end();
+		new_block--;
+		tag T = make_pair(input.fileName, input.offset);
+		inmemory_table.insert(make_pair(T, new_block));
         if (buffer.size()>BUFFERSIZE){ //we should use LRU replace
-            // YOUR CODE GOES HERE:
-            //=============================
-            // find the fist unpin block in the list:buffer, this should be least recent used according to operation above.
-            // make sure its stats allow it to be replace, if not find the block behind, until it meets the condition
-            //=============================    
-
+           
 			bufferIter victim = buffer.begin();
 			
 			while (victim->status) {
@@ -99,14 +78,14 @@ bufferIter BufferManager::BufferManagerRead(const string &fileName, long offset)
 				return buffer.end();
 			}
 			else {
-				buffer.erase(victim);
+				BufferManagerWrite(*victim);
 			}
 
         }
-        // return block of data;
+		return new_block;
 	}
 
-	return ret;
+	
 }
 
 void BufferManager::BufferManagerPin(Block &b)

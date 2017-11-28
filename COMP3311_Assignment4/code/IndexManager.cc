@@ -276,9 +276,7 @@ Response IndexManager::insert(const string &indexName, const element &e, long of
         load();
     }
     if (mp.count(e)) return badRes("Element exist. -- IndexManager::insert");
-    mp[e] = offset;
-    
-	std::cout << "index offset : "<<mp[e] << endl;
+	mp[e] = offset;
 	return goodRes();
 	
 }
@@ -362,7 +360,7 @@ void IndexManager::save() {
         char type;
         fwrite(&o.first.type, sizeof(o.first.type), 1, file);
         if (o.first.type == 0) {
-            fwrite(&o.first.i, sizeof(o.first.i), 1, file);
+            fwrite(&o.first.i, sizeof(o.first.i), 1, file); 
         } else if (o.first.type == 1) {
             fwrite(&o.first.f, sizeof(o.first.f), 1, file);
         } else if (o.first.type == 2) {

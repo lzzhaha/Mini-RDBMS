@@ -96,6 +96,9 @@ Response API::dropTable(const std::string &tableName) {
 
 	if (cm.hasTable(tableName + ".table")) {
 		cm.dropTable(tableName + ".table");
+		std::string dbName = tableName + ".db";
+		rm.RecordManagerTableDetete(dbName);
+		return Response();
 	}
 	else {
 		return Response("Table does not exist");
